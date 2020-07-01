@@ -1,0 +1,31 @@
+
+<app-resizable-splitter
+  [firstFrame]="top"
+  [secondFrame]="bottom"
+  [isVertical]="true">
+</app-resizable-splitter>
+<ng-template #top>
+  <app-resizable-splitter
+    [firstFrame]="topLeft"
+    [secondFrame]="topRight"
+    [isVertical]="false"
+    [firstFrameSize]="33"
+    [firstFrameContext]="topLeftContext"
+    [secondFrameContext]="topRightContext"></app-resizable-splitter>
+</ng-template>
+<ng-template #bottom>
+  <!-- content of bottom half -->
+  <div style="background-color: #8BBEE8FF;" class="full-size">
+    <p>Bottom section</p> 
+  </div>
+</ng-template>
+<ng-template #topLeft let-colour="colour">
+  <div [ngStyle]="{ 'background-color': colour }" class="full-size">
+    <p>Top left section</p> 
+  </div>
+</ng-template>
+<ng-template #topRight let-x>
+  <div [ngStyle]="{ 'background-color': x }" class="full-size">
+    <p>Top right section</p> 
+  </div>
+</ng-template>
